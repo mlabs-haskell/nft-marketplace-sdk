@@ -1,0 +1,31 @@
+import { NftId } from "./common"
+import { mockTransactionCBORHex } from "./mocks"
+
+type SetPriceParams = {
+  /**
+   * The identifier of the NFT to be updated.
+   */
+  nftId: NftId, 
+
+  /**
+   * The new price, in Lovelace.
+   */
+  price: bigint
+}
+
+type SetPriceTx = {
+  /**
+   * CBOR hex of an unsigned transaction.
+   */
+  transaction: string
+}
+
+/**
+ * Attempts to set a new price for the specified NFT.
+ * (This may reject with an error.)
+ */
+const makeSetPriceTransaction = async (params: SetPriceParams): Promise<SetPriceTx> => {
+  return {
+    transaction: mockTransactionCBORHex
+  };
+}
