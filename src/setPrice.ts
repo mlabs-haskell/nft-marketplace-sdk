@@ -1,7 +1,7 @@
 import { NftId } from "./common"
 import { mockTransactionCBORHex } from "./mocks"
 
-type SetPriceParams = {
+export type SetPriceParams = {
   /**
    * The identifier of the NFT to be updated.
    */
@@ -13,7 +13,7 @@ type SetPriceParams = {
   price: bigint
 }
 
-type SetPriceTx = {
+export type SetPriceTx = {
   /**
    * CBOR hex of an unsigned transaction.
    */
@@ -24,8 +24,9 @@ type SetPriceTx = {
  * Attempts to set a new price for the specified NFT.
  * (This may reject with an error.)
  */
-const makeSetPriceTransaction = async (params: SetPriceParams): Promise<SetPriceTx> => {
-  return {
-    transaction: mockTransactionCBORHex
-  };
-}
+export const makeSetPriceTransaction = (baseURL: string, contractInstanceId: string) => 
+  async (params: SetPriceParams): Promise<SetPriceTx> => {
+    return {
+      transaction: mockTransactionCBORHex
+    };
+  }

@@ -1,7 +1,7 @@
 import { Maybe, NftId } from "./common"
 import { mockTransactionCBORHex } from "./mocks"
 
-type BuyParams = {
+export type BuyParams = {
   /**
    * The identifier of the NFT to be bought.
    */
@@ -18,7 +18,7 @@ type BuyParams = {
   newPrice?: Maybe<bigint>
 }
 
-type BuyTx = {
+export type BuyTx = {
   /**
    * CBOR hex of an unsigned transaction.
    */
@@ -30,8 +30,9 @@ type BuyTx = {
  * the author, and sets a new price for the NFT.
  * (This may reject with an error.)
  */
-const makeBuyTransaction = async (params: BuyParams): Promise<BuyTx> => {
-  return {
-    transaction: mockTransactionCBORHex
-  };
-}
+export const makeBuyTransaction = (baseURL: string, contractInstanceId: string) =>
+  async (params: BuyParams): Promise<BuyTx> => {
+    return {
+      transaction: mockTransactionCBORHex
+    };
+  }

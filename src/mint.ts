@@ -39,10 +39,11 @@ export type MintTx = {
  * Mints an NFT and sends it to the App Address.
  * (This may reject with an error.)
  */
-export const makeMintTransaction = async (params: MintParams): Promise<MintTx> => {
-  return { 
-    transaction: mockTransactionCBORHex, 
-    nftId: mockNftId
-  };
-}
+export const makeMintTransaction = (baseURL: string, contractInstanceId: string) => 
+  async (params: MintParams): Promise<MintTx> => {
+    return { 
+      transaction: mockTransactionCBORHex, 
+      nftId: mockNftId
+    };
+  }
 
