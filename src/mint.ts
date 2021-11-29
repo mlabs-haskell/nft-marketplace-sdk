@@ -3,9 +3,9 @@ import { mockNftId, mockTransactionCBORHex } from "./mocks";
 
 export type MintParams = {
   /**
-   * Content to be minted.
+   * File content to be minted.
    */
-  content: string, 
+  content: string | Blob, 
 
   /**
    * Title of content.
