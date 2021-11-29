@@ -3,7 +3,7 @@ import { makeMintTransaction } from "./mint";
 import { queryCurrentOwner, queryCurrentPrice } from "./query";
 import { makeSetPriceTransaction } from "./setPrice";
 
-export const makeSDK = async (baseURL: string, wallet: bigint) => {
+export const makeSdk = async (baseURL: string, walletId: string) => {
   const contractInstanceId = "123";
   return {
     makeTransaction: {
