@@ -1,4 +1,4 @@
-import { NftId } from "./common"
+import { Maybe, NftId, TransactionResponse } from "./common"
 import { mockTransactionCBORHex } from "./mocks"
 
 export type SetPriceParams = {
@@ -10,14 +10,7 @@ export type SetPriceParams = {
   /**
    * The new price, in Lovelace.
    */
-  price: bigint
-}
-
-export type SetPriceTx = {
-  /**
-   * CBOR hex of an unsigned transaction.
-   */
-  transaction: string
+  price: Maybe<bigint>
 }
 
 /**
@@ -25,7 +18,7 @@ export type SetPriceTx = {
  * (This may reject with an error.)
  */
 export const makeSetPriceTransaction = (baseURL: string, contractInstanceId: string) => 
-  async (params: SetPriceParams): Promise<SetPriceTx> => {
+  async (params: SetPriceParams): Promise<TransactionResponse> => {
     return {
       transaction: mockTransactionCBORHex
     };

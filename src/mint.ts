@@ -1,11 +1,11 @@
-import { Maybe, NftId, Rational } from "./common";
+import { Content, Maybe, NftId, Rational, TransactionNftIdResponse, TransactionResponse } from "./common";
 import { mockNftId, mockTransactionCBORHex } from "./mocks";
 
 export type MintParams = {
   /**
    * File content to be minted.
    */
-  content: string | Blob, 
+  content: Content, 
 
   /**
    * Title of content.
@@ -23,24 +23,12 @@ export type MintParams = {
   price: Maybe<bigint>
 }
 
-export type MintTx = {
-  /**
-   * CBOR hex of an unsigned transaction.
-   */
-  transaction: string,
-
-  /**
-   * The identifier for the minted NFT.
-   */
-  nftId: NftId
-}
-
 /**
  * Mints an NFT and sends it to the App Address.
  * (This may reject with an error.)
  */
 export const makeMintTransaction = (baseURL: string, contractInstanceId: string) => 
-  async (params: MintParams): Promise<MintTx> => {
+  async (params: MintParams): Promise<TransactionNftIdResponse> => {
     return { 
       transaction: mockTransactionCBORHex, 
       nftId: mockNftId
