@@ -19,7 +19,7 @@ makeSdk(pabBaseUrl, walletId)
     return sdk.makeTransaction.mint({ 
       content: someImageFile,
       title: "Some Image",
-      share: [1, 10] // 10% share
+      share: [1, 10], // 10% share
       price: 10000000n // 10 Ada as Lovelace
     });
   })
