@@ -1,4 +1,3 @@
-import { isPartiallyEmittedExpression } from '../../../node_modules/typescript/lib/typescript';
 import { Content, InformationNft, Maybe, NftId, UserId } from './common';
 import { mockInformationNft0, mockInformationNfts, mockUserId } from './mocks';
 

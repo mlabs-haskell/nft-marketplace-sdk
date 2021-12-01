@@ -5,7 +5,7 @@ import {
 } from './auction';
 import { makeBuyTransaction } from './buy';
 import { makeMintTransaction } from './mint';
-import { queryContent, queryCurrentOwner, queryCurrentPrice } from './query';
+import { queryContent, queryCurrentOwner, queryCurrentPrice, queryListNfts } from './query';
 import { makeSetPriceTransaction } from './setPrice';
 
 export default async (baseUrl: string, walletId: string) => {
@@ -23,9 +23,10 @@ export default async (baseUrl: string, walletId: string) => {
       setPrice: makeSetPriceTransaction(baseUrl, contractInstanceId),
     },
     query: {
+      content: queryContent(baseUrl, contractInstanceId),
       currentOwner: queryCurrentOwner(baseUrl, contractInstanceId),
       currentPrice: queryCurrentPrice(baseUrl, contractInstanceId),
-      content: queryContent(baseUrl, contractInstanceId),
+      listNfts: queryListNfts(baseUrl, contractInstanceId)
     },
   });
 };
