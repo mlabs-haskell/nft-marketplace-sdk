@@ -5,7 +5,7 @@ A TypeScript SDK for interacting with the Seabug NFT marketplace PAB endpoints.
 ## Usage Example
 
 ```javascript
-import { makeSdk } from 'seabug-sdk'; // actual module name may change
+import makeSdk from 'seabug-sdk'; // actual module name may change
 
 // Plutus Application Backend URL
 const pabBaseUrl = "http://localhost:8080";
