@@ -1,5 +1,5 @@
 import { Content, InformationNft, Maybe, NftId, UserId } from './common';
-import { mockInformationNft0, mockInformationNfts, mockUserId } from './mocks';
+import { makeMockInformationNfts, mockUserId } from './mocks';
 
 /**
  * Retrieves the current owner of a given NftId.
@@ -23,7 +23,7 @@ export const queryCurrentPrice =
 export const queryListNfts =
   (baseURL: string, contractInstanceId: string) =>
   async (): Promise<InformationNft[]> =>
-    Promise.resolve(mockInformationNfts);
+    Promise.resolve(makeMockInformationNfts(1000));
 
 /**
  * Given an application instance and a `Content` returns the status of the NFT
@@ -31,4 +31,4 @@ export const queryListNfts =
 export const queryContent =
   (baseURL: string, contractInstanceId: string) =>
   async (content: Content): Promise<Maybe<InformationNft>> =>
-    Promise.resolve(mockInformationNft0);
+    Promise.resolve(makeMockInformationNfts(1)[0]);
