@@ -6,7 +6,7 @@ import {
   TransactionNftIdResponse,
   TransactionResponse,
 } from './common';
-import { mockNftId, mockTransactionCBORHex } from './mocks';
+import { makeMockNftId, mockTransactionCBORHex } from './mocks';
 
 export type MintParams = {
   /**
@@ -39,5 +39,5 @@ export const makeMintTransaction =
   async (params: MintParams): Promise<TransactionNftIdResponse> =>
     Promise.resolve({
       transaction: mockTransactionCBORHex,
-      nftId: mockNftId,
+      nftId: makeMockNftId(1001),
     });
